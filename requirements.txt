@@ -1,0 +1,8 @@
+aiohttp
+aiomcache
+aiomcache
+aioredis
+fastapi
+uvicorn
+fastapi
+pydantic_settings
