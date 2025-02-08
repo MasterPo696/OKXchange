@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+  app:
+    build: .
+    depends_on:
+      - memcached
+    ports:
+      - "8080:8080"
+    environment:
+      - MEMCACHE_HOST=memcached
+      - MEMCACHE_PORT=11211
