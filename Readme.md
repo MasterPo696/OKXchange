@@ -70,40 +70,6 @@ docker-compose up --build
 docker-compose down
 ```
 
-## Dockerfile
-
-```dockerfile
-FROM python:3.10
-WORKDIR /app
-COPY . .
-RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "main.py"]
-```
-
-## docker-compose.yml
-
-```yaml
-version: '3.8'
-
-services:
-  app:
-    build: .
-    container_name: order_book_updater
-    depends_on:
-      - memcached
-    env_file:
-      - .env
-    ports:
-      - "8000:8000"
-
-  memcached:
-    image: memcached:latest
-    container_name: memcached
-    ports:
-      - "11211:11211"
-```
-
-
 ## Для тестов запустить
 
 ```sh
